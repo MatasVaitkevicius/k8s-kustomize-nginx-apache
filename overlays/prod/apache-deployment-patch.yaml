@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matas-apache-deployment
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: matas-apache-container
+        resources:
+          requests:
+            cpu: "100m"

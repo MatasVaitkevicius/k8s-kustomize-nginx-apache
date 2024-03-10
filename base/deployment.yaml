@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matas-nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matas-nginx
+  template:
+    metadata:
+      labels:
+        app: matas-nginx
+    spec:
+      containers:
+      - name: matas-nginx-container
+        image: nginx:latest
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "50m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matas-apache-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matas-apache
+  template:
+    metadata:
+      labels:
+        app: matas-apache
+    spec:
+      containers:
+      - name: matas-apache-container
+        image: httpd:latest
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "50m"
+        ports:
+        - containerPort: 80

@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: matas-ingress-class
+  tls:
+  - hosts:
+    - nginx.local.com
+    - apache.local.com
+    secretName: matas-cert
+  rules:
+  - host: nginx.local.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: matas-nginx-service
+            port:
+              number: 80
+  - host: apache.local.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: matas-apache-service
+            port:
+              number: 80
