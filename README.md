@@ -17,22 +17,19 @@ Customize Configuration
 
 Before running the setup script, you may need to customize the following configurations based on your environment:
 
-IP Address: Modify the IP_ADDRESS variable in the script if your target IP address differs from the default 127.0.0.1.
-Kubernetes Namespace: Adjust the NAMESPACE variable if you're using a namespace other than default.
-Common Name (CN): The CERT_CN variable should reflect the common name of your certificate; the default is local.com.
+- IP Address: Modify the IP_ADDRESS variable in the script if your target IP address differs from the default 127.0.0.1.
+- Kubernetes Namespace: Adjust the NAMESPACE variable if you're using a namespace other than default.
+- Common Name (CN): The CERT_CN variable should reflect the common name of your certificate; the default is local.com.
 Run the Setup Script
+./deploy-kubernetes-mac
 
 Execute the provided script to set up your environment. This script performs several actions:
+- Updates /etc/hosts with custom domains.
+- Generates a self-signed certificate and keys.
+- Creates a Kubernetes secret for the certificate.
+- Applies the Kubernetes configuration with Kustomize.
 
-Updates /etc/hosts with custom domains.
-Generates a self-signed certificate and keys.
-Creates a Kubernetes secret for the certificate.
-Applies the Kubernetes configuration with Kustomize.
-sh
-Copy code
-./setup_script.sh
 Verify Deployment
-
 Once the script completes, verify the deployment of Nginx and Apache pods within your Kubernetes cluster. Ensure that they are accessible via apache.local.com and nginx.local.com.
 
 ## Script Details
