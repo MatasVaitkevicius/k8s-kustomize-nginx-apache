@@ -1,6 +1,7 @@
 resources:
-  - deployment.yaml
-  - service.yaml
-  - ingress-class.yaml
-  - ingress.yaml
-  - nginx-ingress-controller.yaml
+- deployment.yaml
+- service.yaml
+- secret-cert.yaml
+- ingress-class.yaml
+- ingress.yaml
+- nginx-ingress-controller.yaml
