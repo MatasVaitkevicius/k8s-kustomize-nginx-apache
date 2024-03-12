@@ -10,7 +10,7 @@ OpenSSL
 ## Getting Started
 
 Start by cloning this repository to your local machine.
-git clone <repository-url>
+git clone git@github.com:MatasVaitkevicius/k8s-kustomize-nginx-apache.git
 
 ### Customize Configuration
 
